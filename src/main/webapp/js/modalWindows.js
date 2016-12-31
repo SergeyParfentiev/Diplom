@@ -180,15 +180,13 @@ function makePurchase() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните имейл'//'The full name is required and cannot be empty'
+                            message: 'заполните имейл'
                         },
-                        stringLength: {
-                            max: 30,
-                            message: 'не больше 30 символов'//'The title must be less than 5 characters long',
-                        },
-//                                    regex: /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/
-                    },
-
+                        regexp: {
+                            regexp: '^[^@\\s]+@([^@\\s]+\\.)+[^@\\s]+$',
+                            message: 'Значение не действительный адрес электронной почты'
+                        }
+                    }
                 },
                 address: {
                     onSuccess: function (e, data) {
@@ -202,7 +200,7 @@ function makePurchase() {
 
                     validators: {
                         notEmpty: {
-                            message: 'заполните поле'//'The size is required'
+                            message: 'заполните адресс'//'The size is required'
                         }
                     }
                 },

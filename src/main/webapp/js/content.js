@@ -22,7 +22,6 @@ function loadPagination() {
             totalPages: pages(),
             visiblePages: 10,
             onPageClick: function (event, page) {
-                // window.scrollTo(0, 1000);
                 if (firstOnPageClick) {
                     sendSecondDataAndShowContent('/chooseProducts', $("#myForm").serialize() + '&page=' + page);
                 } else {
@@ -121,7 +120,6 @@ function loadSlider() {
         max: end,
         values: [0, end],
         slide: function (event, ui) {
-//                    $( "#amount" ).val( "$" + ui.values[ 0 ] + " - $" + ui.values[ 1 ] );
             if ((ui.values[1] - ui.values[0]) < 50) {
                 return false;
             } else {
@@ -130,8 +128,7 @@ function loadSlider() {
             }
         }
     });
-//            $("#amount").val("$" + $("#slider-range").slider("values", 0) +
-//                    " - $" + $("#slider-range").slider("values", 1));
+
     $(priceFromVar).val($(slider_priceVar).slider("values", 0));
     $(priceToVar).val($(slider_priceVar).slider("values", 1));
 

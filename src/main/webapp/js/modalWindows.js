@@ -12,7 +12,6 @@ function contactForm() {
         })
         .end()
         .bootstrapValidator({
-//                container: '#messages',
             framework: 'bootstrap',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
@@ -33,11 +32,11 @@ function contactForm() {
                     validators: {
                         notEmpty: {
 
-                            message: 'заполните поле'//'The full name is required and cannot be empty'
+                            message: 'заполните поле'
                         },
                         stringLength: {
                             max: 30,
-                            message: 'не больше 30 символов'//'The title must be less than 5 characters long',
+                            message: 'не больше 30 символов'
                         }
                     }
                 },
@@ -55,11 +54,11 @@ function contactForm() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните поле'//'Contact Phoneno is required'
+                            message: 'заполните поле'
                         },
                         stringLength: {
                             min: 15,
-                            message: 'номер телефона 10 цифр'//'The title must be more than 15 characters long',
+                            message: 'номер телефона 10 цифр'
                         },
                     }
                 },
@@ -75,28 +74,20 @@ function contactForm() {
 
                     validators: {
                         notEmpty: {
-                            message: 'выберите услугу'//'The size is required'
+                            message: 'выберите услугу'
                         }
                     }
                 },
                 note: {
-                    validators: {
-//                                    notEmpty: {
-//                                        message: 'заполните поле'//'The description is required'
-//                                    },
+                    validators: {                                    
                         stringLength: {
-//                                        min: 50,
                             max: 250,
                             message: 'Описание должно быть не более 250 символов'
-                            //'The description must be more than 50 and less than 1000 characters'
                         }
                     }
                 }
             }
         });
-//                    .find('[name="project.service"]')
-//                    .combobox()
-//                    .end();
 
     $("#send").click(function () {
         if (name && phone && service) {
@@ -113,8 +104,7 @@ function contactForm() {
                         $("#success").fadeIn('fast');
                         setTimeout(function () {
                             $("#success").fadeOut('fast');
-                            $("#myModalBox").modal("hide");
-                            // Скрываем его
+                            $("#myModalBox").modal("hide");                         
                         }, 3000);
 
                     } else {
@@ -123,8 +113,7 @@ function contactForm() {
                         $("#notSuccessful").fadeIn('fast');
                         setTimeout(function () {
                             $("#notSuccessful").fadeOut('fast');
-                            $("#myModalBox").modal("hide");
-                            // Скрываем его
+                            $("#myModalBox").modal("hide");                           
                         }, 3000);
                     }
                 }
@@ -161,11 +150,11 @@ function makePurchase() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните имя'//'The full name is required and cannot be empty'
+                            message: 'заполните имя'
                         },
                         stringLength: {
                             max: 30,
-                            message: 'не больше 30 символов'//'The title must be less than 5 characters long',
+                            message: 'не больше 30 символов'
                         }
                     }
                 },
@@ -200,7 +189,7 @@ function makePurchase() {
 
                     validators: {
                         notEmpty: {
-                            message: 'заполните адресс'//'The size is required'
+                            message: 'заполните адресс'
                         }
                     }
                 },
@@ -218,15 +207,14 @@ function makePurchase() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните поле'//'Contact Phoneno is required'
+                            message: 'заполните поле'
                         },
                         stringLength: {
                             min: 15,
-                            message: 'номер телефона 10 цифр'//'The title must be more than 15 characters long',
+                            message: 'номер телефона 10 цифр'
                         },
                     }
                 }
-//
             }
         });
 
@@ -246,8 +234,7 @@ function makePurchase() {
                         $("#success").fadeIn('fast');
                         setTimeout(function () {
                             $("#success").fadeOut('fast');
-                            $("#myModalBox").modal("hide");
-                            // Скрываем его
+                            $("#myModalBox").modal("hide");                            
                         }, 3000);
 
                     } else {
@@ -256,8 +243,7 @@ function makePurchase() {
                         $("#notSuccessful").fadeIn('fast');
                         setTimeout(function () {
                             $("#notSuccessful").fadeOut('fast');
-                            $("#myModalBox").modal("hide");
-                            // Скрываем его
+                            $("#myModalBox").modal("hide");                           
                         }, 3000);
                     }
                 }

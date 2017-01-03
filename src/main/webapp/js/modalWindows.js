@@ -7,12 +7,10 @@ function contactForm() {
         .find('[name="project.service"]')
         .selectpicker()
         .change(function (e) {
-            /* Revalidate the language when it is changed */
             $('#contactForm').bootstrapValidator('revalidateField', 'service');
         })
         .end()
         .bootstrapValidator({
-//                container: '#messages',
             framework: 'bootstrap',
             feedbackIcons: {
                 valid: 'glyphicon glyphicon-ok',
@@ -33,11 +31,11 @@ function contactForm() {
                     validators: {
                         notEmpty: {
 
-                            message: 'заполните поле'//'The full name is required and cannot be empty'
+                            message: 'заполните поле'
                         },
                         stringLength: {
                             max: 30,
-                            message: 'не больше 30 символов'//'The title must be less than 5 characters long',
+                            message: 'не больше 30 символов'
                         }
                     }
                 },
@@ -55,11 +53,11 @@ function contactForm() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните поле'//'Contact Phoneno is required'
+                            message: 'заполните поле'
                         },
                         stringLength: {
                             min: 15,
-                            message: 'номер телефона 10 цифр'//'The title must be more than 15 characters long',
+                            message: 'номер телефона 10 цифр'
                         },
                     }
                 },
@@ -69,38 +67,29 @@ function contactForm() {
                         console.log('serviceSuccess')
                     },
                     onError: function (e, data) {
-                        console.log('serviceNotSucces')
+                        console.log('serviceNotSucces');
                         service1 = false
                     },
 
                     validators: {
                         notEmpty: {
-                            message: 'выберите услугу'//'The size is required'
+                            message: 'выберите услугу'
                         }
                     }
                 },
                 note: {
                     validators: {
-//                                    notEmpty: {
-//                                        message: 'заполните поле'//'The description is required'
-//                                    },
                         stringLength: {
-//                                        min: 50,
                             max: 250,
                             message: 'Описание должно быть не более 250 символов'
-                            //'The description must be more than 50 and less than 1000 characters'
                         }
                     }
                 }
             }
         });
-//                    .find('[name="project.service"]')
-//                    .combobox()
-//                    .end();
 
     $("#send").click(function () {
         if (name && phone && service) {
-            console.log('name ' + name + ' phone ' + phone + ' service ' + service);
             $.ajax({
                 type: 'POST',
                 url: '/addCallback',
@@ -114,7 +103,6 @@ function contactForm() {
                         setTimeout(function () {
                             $("#success").fadeOut('fast');
                             $("#myModalBox").modal("hide");
-                            // Скрываем его
                         }, 3000);
 
                     } else {
@@ -124,7 +112,6 @@ function contactForm() {
                         setTimeout(function () {
                             $("#notSuccessful").fadeOut('fast');
                             $("#myModalBox").modal("hide");
-                            // Скрываем его
                         }, 3000);
                     }
                 }
@@ -139,7 +126,7 @@ function makePurchase() {
     var address = false;
     var phone = false;
 
-
+    $('#phoneOrder').mask('(###) ###-##-##');
     $('#make-purchase')
         .bootstrapValidator({
             framework: 'bootstrap',
@@ -161,11 +148,11 @@ function makePurchase() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните имя'//'The full name is required and cannot be empty'
+                            message: 'заполните имя'
                         },
                         stringLength: {
                             max: 30,
-                            message: 'не больше 30 символов'//'The title must be less than 5 characters long',
+                            message: 'не больше 30 символов'
                         }
                     }
                 },
@@ -200,7 +187,7 @@ function makePurchase() {
 
                     validators: {
                         notEmpty: {
-                            message: 'заполните адресс'//'The size is required'
+                            message: 'заполните адресс'
                         }
                     }
                 },
@@ -218,22 +205,20 @@ function makePurchase() {
                     },
                     validators: {
                         notEmpty: {
-                            message: 'заполните поле'//'Contact Phoneno is required'
+                            message: 'заполните телефон'
                         },
                         stringLength: {
                             min: 15,
-                            message: 'номер телефона 10 цифр'//'The title must be more than 15 characters long',
-                        },
+                            message: 'номер телефона 10 цифр'
+                        }
                     }
                 }
-//
             }
         });
 
     $("#sendOrder").click(function () {
         console.log($("#basket-cart").serialize());
         if (name && phone && address && email) {
-            console.log('name ' + name + ' phone ' + phone + ' service ' + address + ' email ' + email);
             $.ajax({
                 type: 'POST',
                 url: '/addOrder',
@@ -247,7 +232,6 @@ function makePurchase() {
                         setTimeout(function () {
                             $("#success").fadeOut('fast');
                             $("#myModalBox").modal("hide");
-                            // Скрываем его
                         }, 3000);
 
                     } else {
@@ -257,7 +241,6 @@ function makePurchase() {
                         setTimeout(function () {
                             $("#notSuccessful").fadeOut('fast');
                             $("#myModalBox").modal("hide");
-                            // Скрываем его
                         }, 3000);
                     }
                 }

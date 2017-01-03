@@ -175,6 +175,11 @@ public class ManagerServiceImpl implements ManagerService {
     }
 
     @Override
+    public boolean serviceByName(String name) {
+        return service.findByName(name);
+    }
+
+    @Override
     @Transactional(readOnly = true)
     public List<ProductType> productTypeList() {
         return productType.findAll();
@@ -182,8 +187,17 @@ public class ManagerServiceImpl implements ManagerService {
 
     @Override
     @Transactional(readOnly = true)
+    public boolean productTypeByName(String name) {return productType.findByName(name);}
+
+    @Override
+    @Transactional(readOnly = true)
     public List<ProductFirm> productFirmList() {
         return productFirm.findAll();
+    }
+
+    @Override
+    public boolean productFirmByName(String name) {
+        return productFirm.findByName(name);
     }
 
     @Override

@@ -73,7 +73,7 @@
                                        placeholder="Ел. почта"/>
                             </div>
                             <div class="form-group selectContainer">
-                                <input id="phone" type="tel" class="form-control" name="phone"
+                                <input id="phoneOrder" type="tel" class="form-control" name="phone"
                                        placeholder="(XXX) XXX-XX-XX" data-let-template="/^(0\d*|)$/"
                                        maxlength="15" autocomplete="off"/>
                             </div>

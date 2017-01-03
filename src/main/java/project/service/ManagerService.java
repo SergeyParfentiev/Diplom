@@ -47,9 +47,15 @@ public interface ManagerService {
 
     List<Services> serviceList();
 
+    boolean serviceByName(String name);
+
     List<ProductType> productTypeList();
 
+    boolean productTypeByName(String name);
+
     List<ProductFirm> productFirmList();
+
+    boolean productFirmByName(String name);
 
     List<Product> productList();
 }

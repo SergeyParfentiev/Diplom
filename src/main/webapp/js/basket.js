@@ -79,9 +79,6 @@ function openCart(scrollTopValue) {
                 + cartData[items][3] + '<input name="count" value="' + cartData[items][3] + '" style="display: none"/><a href="javascript:;" onclick="itemPriceIncrement(' + items + ')"> +</a> </td>' +
                 '<td> × ' + cartData[items][4] + ' грн.</td></tr>';
             totalPrice += parseInt(cartData[items][4]);
-//                        for (var i = 0; i < cartData[items].length; i++) {
-//                            totalItems += '<td>' + cartData[items][i] + '</td>';
-//                        }
         }
         totalItems += '</table></div>';
         totalItems += '<div id="totalPrice" style="text-align: right; margin-right: 7%"><h3>Итого: ' + totalPrice + '</h3></div>';

@@ -5,7 +5,7 @@
     <title>Premium water</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/resources/style/content.css"/>
+    <link rel="stylesheet" href="/css/content.css"/>
 </head>
 <body>
     <div align="center">
@@ -21,11 +21,11 @@
             <input class="btn btn-success" type="submit"/>
 
             <c:if test="${param.error ne null}">
-                <h4>Wrong login or password!</h4>
+                <h4>Неверный логин или пароль!</h4>
             </c:if>
 
             <c:if test="${param.logout ne null}">
-                <h4>Successfully logout!</h4>
+                <h4>Выход успешен!</h4>
             </c:if>
         </form>
     </div>

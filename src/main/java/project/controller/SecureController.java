@@ -67,8 +67,9 @@ public class SecureController {
     public String addService(Model model,
                              @RequestParam(value = "newService", required = false) String newService) {
         List<Services> serviceList = managerService.serviceList();
+        boolean serviceExist = managerService.serviceByName(newService);
 
-        if (newService != null && !"".equals(newService.replaceAll(" ", ""))) {
+        if (newService != null && !"".equals(newService.replaceAll(" ", "")) && !serviceExist) {
             serviceList.add(new Services(newService));
             managerService.addService(newService);
         }
@@ -89,8 +90,9 @@ public class SecureController {
     public String addProductType(Model model,
                                  @RequestParam(value = "productType", required = false) String productType) {
         List<ProductType> productTypeList = managerService.productTypeList();
+        boolean productTypeExist = managerService.productTypeByName(productType);
 
-        if (!"".equals(productType.replaceAll(" ", ""))) {
+        if (!"".equals(productType.replaceAll(" ", "")) && !productTypeExist) {
             productTypeList.add(new ProductType(productType));
             managerService.addProductType(productType);
         }
@@ -112,8 +114,10 @@ public class SecureController {
                                  @RequestParam(value = "productFirmName", required = false) String productFirmName,
                                  @RequestParam(value = "productFirmCountry", required = false) String productFirmCountry) {
         List<ProductFirm> productFirmList = managerService.productFirmList();
+        boolean productFirmExist = managerService.productFirmByName(productFirmName);
 
-        if (!"".equals(productFirmName.replaceAll(" ", "")) && !"".equals(productFirmCountry.replaceAll(" ", ""))) {
+        if (!"".equals(productFirmName.replaceAll(" ", "")) && !"".equals(productFirmCountry.replaceAll(" ", "")) &&
+                !productFirmExist) {
             productFirmList.add(new ProductFirm(productFirmName, productFirmCountry));
             managerService.addProductFirm(productFirmName, productFirmCountry);
         }

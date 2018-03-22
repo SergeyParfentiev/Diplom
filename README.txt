@@ -1,4 +1,4 @@
-http://diplom.jelastic.regruhosting.ru/
+
 
 ADMIN:
 login: admin
